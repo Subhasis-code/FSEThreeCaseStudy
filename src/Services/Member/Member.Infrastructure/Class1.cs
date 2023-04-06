@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Member.Domain
+namespace Member.Infrastructure
 {
     public class Class1
     {
