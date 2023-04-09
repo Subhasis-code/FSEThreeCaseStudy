@@ -3,6 +3,7 @@ using Member.Application.Features.Members.Commands.AddMemberTask;
 using Member.Application.Features.Members.Commands.AddTeamMember;
 using Member.Application.Features.Members.Commands.UpdateTeamMember;
 using Member.Application.Features.Members.Queries.GetMembersList;
+using Member.Application.Features.Members.Queries.GetMemberTaskList;
 using Member.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Member.Application.Mappings
             CreateMap<TeamMember, AddTeamMemberCommand>().ReverseMap();
             CreateMap<TeamMember, UpdateTeamMemberCommand>().ReverseMap();
             CreateMap<MemberTask, AddMemberTaskCommand>().ReverseMap();
+            CreateMap<MemberTask, MemberTaskVm>().ReverseMap();
         }
     }
 }
