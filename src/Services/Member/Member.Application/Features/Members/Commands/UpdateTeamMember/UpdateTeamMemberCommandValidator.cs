@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Member.Application.Features.Members.Commands.AddTeamMember
+namespace Member.Application.Features.Members.Commands.UpdateTeamMember
 {
-    public class AddTeamMemberValidator : AbstractValidator<AddTeamMemberCommand>
+    public class UpdateTeamMemberCommandValidator : AbstractValidator<UpdateTeamMemberCommand>
     {
-        public AddTeamMemberValidator()
+        public UpdateTeamMemberCommandValidator()
         {
             RuleFor(p => p.AdditionalDescription)
                 .NotEmpty().WithMessage("{AdditionalDescription} is required")

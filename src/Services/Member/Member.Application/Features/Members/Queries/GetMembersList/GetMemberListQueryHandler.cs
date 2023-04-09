@@ -23,7 +23,7 @@ namespace Member.Application.Features.Members.Queries.GetMembersList
 
         public async Task<List<TeamMemberVm>> Handle(GetMemberListQuery request, CancellationToken cancellationToken)
         {
-            var response = await _memberRepository.GetTeamMembersByID(request.MemberID);
+            var response = await _memberRepository.GetAllAsync();
             return _mapper.Map<List<TeamMemberVm>>(response);
         }
     }

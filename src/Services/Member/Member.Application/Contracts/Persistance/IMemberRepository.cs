@@ -9,6 +9,6 @@ namespace Member.Application.Contracts.Persistance
 {
     public interface IMemberRepository : IAsyncRepository<TeamMember>
     {
-        Task<IEnumerable<TeamMember>> GetTeamMembersByID(int MemberId);
+        Task<TeamMember> GetTeamMembersByID(int MemberId);
     }
 }
