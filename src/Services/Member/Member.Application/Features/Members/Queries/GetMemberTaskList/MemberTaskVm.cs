@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Member.Application.Features.Members.Queries.GetMemberTaskList
 {
-    class MemberTaskVm
+    public class MemberTaskVm
     {
     }
 }
