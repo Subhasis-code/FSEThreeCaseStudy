@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Member.Application.Contracts.Persistance;
+using Member.Application.Exception;
 using Member.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,15 +28,16 @@ namespace Member.Application.Features.Members.Commands.UpdateTeamMember
 
         public async Task<int> Handle(UpdateTeamMemberCommand request, CancellationToken cancellationToken)
         {
-            var orderToUpdate = await _memberRepository.GetTeamMembersByID(request.Id);
-            if (orderToUpdate == null)
+            var memberToUpdate = await _memberRepository.GetTeamMembersByID(request.Id);
+            if (memberToUpdate == null)
             {
                 _logger.LogInformation("Member not found for Member ID:" + request.Id);
+                throw new NotFoundException(nameof(TeamMember), request.Id);
             }
-            _mapper.Map(request, orderToUpdate, typeof(UpdateTeamMemberCommand), typeof(TeamMember));
-            await _memberRepository.UpdateAsync(orderToUpdate);
+            _mapper.Map(request, memberToUpdate, typeof(UpdateTeamMemberCommand), typeof(TeamMember));
+            await _memberRepository.UpdateAsync(memberToUpdate);
             _logger.LogInformation("Member update successfull");
-            return orderToUpdate.Id;
+            return memberToUpdate.Id;
         }
     }
 }
