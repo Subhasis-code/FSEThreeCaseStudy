@@ -16,7 +16,7 @@ namespace Member.Infrastructure.Persistence
         {
         }
         public DbSet<TeamMember> teamMembers;
-        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach(var entry in ChangeTracker.Entries<EntityBase>())
             {
@@ -33,7 +33,7 @@ namespace Member.Infrastructure.Persistence
 
                 }
             }
-            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }
