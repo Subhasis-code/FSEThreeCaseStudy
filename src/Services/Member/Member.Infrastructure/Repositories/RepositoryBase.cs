@@ -13,7 +13,7 @@ namespace Member.Infrastructure.Repositories
 {
     public class RepositoryBase<T> : IAsyncRepository<T> where T : EntityBase
     {
-        private readonly MemberContext _dbContext;
+        protected readonly MemberContext _dbContext;
 
         public RepositoryBase(MemberContext dbContext)
         {
