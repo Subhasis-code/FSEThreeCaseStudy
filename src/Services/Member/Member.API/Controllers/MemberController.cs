@@ -26,7 +26,7 @@ namespace Member.API.Controllers
 
         [HttpGet("{MemberId}", Name = "GetTeamMemberByID")]
         [ProducesResponseType(typeof(IEnumerable<TeamMemberVm>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<TeamMemberVm>>> GetTeamMemberVmByUserName(int MemberId)
+        public async Task<ActionResult<IEnumerable<TeamMemberVm>>> GetTeamMemberByID(int MemberId)
         {
             var query = new GetMemberListQuery(MemberId);
             var orders = await _mediator.Send(query);
