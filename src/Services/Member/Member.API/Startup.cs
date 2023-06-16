@@ -1,4 +1,5 @@
 using Member.Application;
+using Member.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,8 @@ namespace Member.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationServices();
+            services.AddInfrastructureServices(Configuration);
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
