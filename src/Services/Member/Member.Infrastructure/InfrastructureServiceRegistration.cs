@@ -20,8 +20,10 @@ namespace Member.Infrastructure
             services.AddDbContext<MemberContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DBConnectionString")));
 
+
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IMemberRepository, TeamMemberRepository>();
+            services.AddScoped<IMemberTaskRepository, TeamMemberTaskRepository>();
             return services;
         }
     }
